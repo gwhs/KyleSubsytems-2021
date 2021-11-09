@@ -5,19 +5,8 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.XboxController;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -27,7 +16,6 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    private final XboxController m_driverController = new XboxController(0);
     private static final int m_myRobotLeftEnd = 6;
     private static final int m_myRobotLeftMiddle = 5;
     private static final int m_myRobotLeftFront = 4;
