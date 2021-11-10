@@ -11,7 +11,7 @@
   #### 6. 2 pistons
   #### 7. 2 air compressed canisters
   #### 8. 1 robo rio
-  #### 9. 1 wifi resiever
+  #### 9. 1 wifi reciever
   #### 10.2 VRM(Voltage Regulator Module)
   #### 11. 6 brushless motors
   #### 12. 2 voltage range
