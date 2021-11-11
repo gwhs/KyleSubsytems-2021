@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Compressor;
 
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -16,13 +17,10 @@ import edu.wpi.first.wpilibj.Compressor;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    private static final int m_myRobotLeftEnd = 6;
-    private static final int m_myRobotLeftMiddle = 5;
-    private static final int m_myRobotLeftFront = 4;
-    private static final int m_myRobotRightEnd = 3;
-    private static final int m_myRobotRightMiddle = 2;
-    private static final int m_myRobotRightFront = 1;
-    private static Compressor compressor;
-    private DoubleSolenoid leftDouble = new DoubleSolenoid(0, 1);
-    private DoubleSolenoid rightDouble = new DoubleSolenoid(/* The PCM CAN ID */ 0, 2, 3); 
+    public static final int LEFT_END = 6;
+    public static final int LEFT_MIDDLE = 5;
+    public static final int LEFT_FRONT = 4;
+    public static final int RIGHT_END = 3;
+    public static final int RIGHT_MIDDLE= 2;
+    public static final int RIGHT_FRONT = 1;
 }
