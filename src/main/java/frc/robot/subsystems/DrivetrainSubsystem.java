@@ -38,4 +38,9 @@ public class DrivetrainSubsystem extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
+
+public void arcadeDrive(double asDouble, double asDouble2) {
+  m_myRobot.arcadeDrive(asDouble, asDouble2, true);
+}
+
 }

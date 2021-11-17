@@ -5,20 +5,30 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.DrivetrainSubsystem;
+
+import java.util.function.DoubleSupplier;
+
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 
 /** An example command that uses an example subsystem. */
 public class DrivetrainCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final DrivetrainSubsystem m_subsystem;
+  private DrivetrainSubsystem m_subsystem;
+  private DoubleSupplier m_forward;
+  private DoubleSupplier m_rotation;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
+   * @return
    */
-  public DrivetrainCommand(DrivetrainSubsystem subsystem) {
+  public void DefaultDrive(DrivetrainSubsystem subsystem, DoubleSupplier forward, DoubleSupplier rotation) {
     m_subsystem = subsystem;
+    m_forward = forward;
+    m_rotation = rotation;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -29,7 +39,9 @@ public class DrivetrainCommand extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_subsystem.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
+  }
 
   // Called once the command ends or is interrupted.
   @Override

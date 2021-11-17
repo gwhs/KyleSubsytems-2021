@@ -18,13 +18,14 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final DrivetrainSubsystem m_exampleSubsystem = new DrivetrainSubsystem();
+  private final DrivetrainSubsystem m_DrivetrainsSubsystem = new DrivetrainSubsystem();
 
-  private final DrivetrainCommand m_autoCommand = new DrivetrainCommand(m_exampleSubsystem);
+  private final DrivetrainCommand m_autoCommand = new DrivetrainCommand();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
+    
     configureButtonBindings();
   }
 
