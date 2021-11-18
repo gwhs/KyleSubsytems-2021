@@ -11,13 +11,15 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 /** An example command that uses an example subsystem. */
 public class DrivetrainCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private DrivetrainSubsystem m_subsystem;
-  private DoubleSupplier m_forward;
-  private DoubleSupplier m_rotation;
+  private XboxController m_xbox;
+
 
   /**
    * Creates a new ExampleCommand.
@@ -25,24 +27,32 @@ public class DrivetrainCommand extends CommandBase {
    * @param subsystem The subsystem used by this command.
    * @return
    */
-  public void DefaultDrive(DrivetrainSubsystem subsystem, DoubleSupplier forward, DoubleSupplier rotation) {
+  public DrivetrainCommand(DrivetrainSubsystem subsystem, XboxController xbox) {
     m_subsystem = subsystem;
-    m_forward = forward;
-    m_rotation = rotation;
+    m_xbox = xbox;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
 
-  // Called when the command is initially scheduled.
+public DrivetrainCommand(DrivetrainSubsystem m_DrivetrainsSubsystem) {
+}
+
+// Called when the command is initially scheduled.
   @Override
   public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
+    m_subsystem.arcadeDrive(forwardSpeed(),turnSpeed());
   }
-
+// This controls speed of motors
+  private double forwardSpeed(){
+    return m_xbox.getY(Hand.kLeft);
+  }
+  private double turnSpeed(){
+    return m_xbox.getX(Hand.kRight)*.9;
+  }
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {}

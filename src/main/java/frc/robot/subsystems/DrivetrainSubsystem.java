@@ -10,17 +10,23 @@ import frc.robot.Constants;
 
 
 public class DrivetrainSubsystem extends SubsystemBase {
+  CANSparkMax m_myRobotLeftGroupEnd;
+    CANSparkMax m_myRobotLeftGroupMiddle;
+    CANSparkMax m_myRobotLeftGroupFront;
+    CANSparkMax m_myRobotRightGroupEnd;
+    CANSparkMax m_myRobotRightGroupMiddle;
+    CANSparkMax m_myRobotRightGroupFront;
   /** Creates a new ExampleSubsystem. */
   private DifferentialDrive m_myRobot;
   public DrivetrainSubsystem() {
-    CANSparkMax m_myRobotLeftGroupEnd = new CANSparkMax(Constants.LEFT_END, MotorType.kBrushless);
-    CANSparkMax m_myRobotLeftGroupMiddle = new CANSparkMax(Constants.LEFT_MIDDLE, MotorType.kBrushless);
-    CANSparkMax m_myRobotLeftGroupFront = new CANSparkMax(Constants.LEFT_FRONT, MotorType.kBrushless);
+    m_myRobotLeftGroupEnd = new CANSparkMax(Constants.LEFT_END, MotorType.kBrushless);
+    m_myRobotLeftGroupMiddle = new CANSparkMax(Constants.LEFT_MIDDLE, MotorType.kBrushless);
+    m_myRobotLeftGroupFront = new CANSparkMax(Constants.LEFT_FRONT, MotorType.kBrushless);
     m_myRobotLeftGroupEnd.follow(m_myRobotLeftGroupFront);
     m_myRobotLeftGroupMiddle.follow(m_myRobotLeftGroupFront);
-    CANSparkMax m_myRobotRightGroupEnd = new CANSparkMax(Constants.RIGHT_END, MotorType.kBrushless);
-    CANSparkMax m_myRobotRightGroupMiddle = new CANSparkMax(Constants.RIGHT_MIDDLE, MotorType.kBrushless);
-    CANSparkMax m_myRobotRightGroupFront = new CANSparkMax(Constants.RIGHT_END, MotorType.kBrushless);
+    m_myRobotRightGroupEnd = new CANSparkMax(Constants.RIGHT_END, MotorType.kBrushless);
+    m_myRobotRightGroupMiddle = new CANSparkMax(Constants.RIGHT_MIDDLE, MotorType.kBrushless);
+    m_myRobotRightGroupFront = new CANSparkMax(Constants.RIGHT_END, MotorType.kBrushless);
     m_myRobotRightGroupMiddle.follow(m_myRobotRightGroupFront);
     m_myRobotRightGroupEnd.follow(m_myRobotRightGroupFront);
 

@@ -18,14 +18,15 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  XboxController joystick = new XboxController(0);
   private final DrivetrainSubsystem m_DrivetrainsSubsystem = new DrivetrainSubsystem();
 
-  private final DrivetrainCommand m_autoCommand = new DrivetrainCommand();
+  private final DrivetrainCommand m_autoCommand = new DrivetrainCommand(m_DrivetrainsSubsystem, joystick);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-    
+    m_DrivetrainsSubsystem.setDefaultCommand(new DrivetrainCommand(m_DrivetrainsSubsystem, joystick));
     configureButtonBindings();
   }
 
