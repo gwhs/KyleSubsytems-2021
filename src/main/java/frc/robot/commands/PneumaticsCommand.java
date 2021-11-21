@@ -4,55 +4,33 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.DrivetrainSubsystem;
-
-import java.util.function.DoubleSupplier;
-
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.subsystems.PneumaticsSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Subsystem;
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 /** An example command that uses an example subsystem. */
-public class DrivetrainCommand extends CommandBase {
+public class PneumaticsCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private DrivetrainSubsystem m_subsystem;
-  private XboxController m_xbox;
-
+  private final PneumaticsSubsystem m_subsystem;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
-   * @return
    */
-  public DrivetrainCommand(DrivetrainSubsystem subsystem, XboxController xbox) {
+  public PneumaticsCommand(PneumaticsSubsystem subsystem) {
     m_subsystem = subsystem;
-    m_xbox = xbox;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
 
-public DrivetrainCommand(DrivetrainSubsystem m_DrivetrainsSubsystem) {
-}
-
-// Called when the command is initially scheduled.
+  // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    m_subsystem.arcadeDrive(forwardSpeed(),turnSpeed());
-  }
-// This controls speed of motors
-  private double forwardSpeed(){
-    return m_xbox.getY(Hand.kLeft)*0.1;
-  }
-  private double turnSpeed(){
-    return m_xbox.getX(Hand.kRight)*.1;
-  }
+  public void execute() {}
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {}
