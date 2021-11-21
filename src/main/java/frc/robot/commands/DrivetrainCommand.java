@@ -6,11 +6,7 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.DrivetrainSubsystem;
 
-import java.util.function.DoubleSupplier;
-
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 

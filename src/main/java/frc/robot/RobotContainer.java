@@ -7,8 +7,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DrivetrainCommand;
+import frc.robot.commands.PneumaticsCommand;
 import frc.robot.subsystems.DrivetrainSubsystem;
+import frc.robot.subsystems.PneumaticsSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -18,15 +21,17 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  XboxController joystick = new XboxController(0);
+  XboxController xbox = new XboxController(0);
   private final DrivetrainSubsystem m_DrivetrainsSubsystem = new DrivetrainSubsystem();
+  private final DrivetrainCommand m_autoCommand = new DrivetrainCommand(m_DrivetrainsSubsystem, xbox);
 
-  private final DrivetrainCommand m_autoCommand = new DrivetrainCommand(m_DrivetrainsSubsystem, joystick);
+  private final PneumaticsSubsystem m_PneumaticsSubsystem = new PneumaticsSubsystem();
+  private final PneumaticsCommand m_PneumaticsCommand = new PneumaticsCommand(m_PneumaticsSubsystem, xbox);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-    m_DrivetrainsSubsystem.setDefaultCommand(new DrivetrainCommand(m_DrivetrainsSubsystem, joystick));
+    m_DrivetrainsSubsystem.setDefaultCommand(new DrivetrainCommand(m_DrivetrainsSubsystem, xbox));
     configureButtonBindings();
   }
 
@@ -36,7 +41,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    JoystickButton buttonY = new JoystickButton(xbox, XboxController.Button.kY.value);
+    buttonY.whenPressed(new PneumaticsCommand(m_PneumaticsSubsystem, xbox));
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
