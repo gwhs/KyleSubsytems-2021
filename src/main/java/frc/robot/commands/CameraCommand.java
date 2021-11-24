@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 /** An example command that uses an example subsystem. */
 public class CameraCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final CameraSubsystem m_subsystem;
+  public final CameraSubsystem m_subsystem;
 
   /**
    * Creates a new ExampleCommand.
