@@ -44,10 +44,10 @@ public DrivetrainCommand(DrivetrainSubsystem m_DrivetrainsSubsystem) {
   }
 // This controls speed of motors
   private double forwardSpeed(){
-    return m_xbox.getY(Hand.kLeft)*0.1;
+    return m_xbox.getY(Hand.kLeft)*0.5;
   }
   private double turnSpeed(){
-    return m_xbox.getX(Hand.kRight)*.1;
+    return m_xbox.getX(Hand.kRight)*.25;
   }
   // Called once the command ends or is interrupted.
   @Override

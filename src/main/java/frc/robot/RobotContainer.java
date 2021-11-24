@@ -7,11 +7,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DrivetrainCommand;
-import frc.robot.commands.PneumaticsCommand;
 import frc.robot.subsystems.DrivetrainSubsystem;
-import frc.robot.subsystems.PneumaticsSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.PneumaticsCommand;
+import frc.robot.subsystems.PneumaticsSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -27,7 +27,6 @@ public class RobotContainer {
 
   private final PneumaticsSubsystem m_PneumaticsSubsystem = new PneumaticsSubsystem();
   private final PneumaticsCommand m_PneumaticsCommand = new PneumaticsCommand(m_PneumaticsSubsystem, xbox);
-
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -43,7 +42,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     JoystickButton buttonY = new JoystickButton(xbox, XboxController.Button.kY.value);
-    buttonY.whenPressed(new PneumaticsCommand(m_PneumaticsSubsystem, xbox));
+
+    buttonY.whenPressed(m_PneumaticsCommand, true);
   }
 
   /**
