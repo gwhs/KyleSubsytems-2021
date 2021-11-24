@@ -28,12 +28,12 @@ public class DrivetrainSubsystem extends SubsystemBase {
     m_myRobotRightGroupEnd = new CANSparkMax(Constants.RIGHT_END, MotorType.kBrushless);
     m_myRobotRightGroupMiddle = new CANSparkMax(Constants.RIGHT_MIDDLE, MotorType.kBrushless);
     m_myRobotRightGroupFront = new CANSparkMax(Constants.RIGHT_FRONT, MotorType.kBrushless);
-    m_myRobotRightGroupMiddle.follow(m_myRobotRightGroupFront);
+    m_myRobotRightGroupEnd.follow(m_myRobotRightGroupFront);
     m_myRobotRightGroupEnd.follow(m_myRobotRightGroupFront);
 
     // m_myRobot____ is not actually a group it defines the CANspark as seen above.
     // Change if needed.
-    m_myRobot = new DifferentialDrive(m_myRobotLeftGroupFront, m_myRobotRightGroupFront);
+    m_myRobot = new DifferentialDrive(m_myRobotRightGroupFront, m_myRobotLeftGroupFront);
     compressor = new Compressor();
     compressor = null;
   }
