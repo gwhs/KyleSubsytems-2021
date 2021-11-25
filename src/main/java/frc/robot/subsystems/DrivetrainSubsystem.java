@@ -7,7 +7,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import edu.wpi.first.wpilibj.Compressor;
 
 public class DrivetrainSubsystem extends SubsystemBase {
   CANSparkMax m_myRobotLeftGroupEnd;
@@ -16,7 +15,6 @@ public class DrivetrainSubsystem extends SubsystemBase {
     CANSparkMax m_myRobotRightGroupEnd;
     CANSparkMax m_myRobotRightGroupMiddle;
     CANSparkMax m_myRobotRightGroupFront;
-    //Compressor compressor;
   /** Creates a new ExampleSubsystem. */
   private DifferentialDrive m_myRobot;
   public DrivetrainSubsystem() {
@@ -34,8 +32,6 @@ public class DrivetrainSubsystem extends SubsystemBase {
     // m_myRobot____ is not actually a group it defines the CANspark as seen above.
     // Change if needed.
     m_myRobot = new DifferentialDrive(m_myRobotRightGroupFront, m_myRobotLeftGroupFront);
-    //compressor = new Compressor();
-    //compressor = null;
   }
 
   @Override
