@@ -26,7 +26,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   XboxController xbox = new XboxController(0);
   private final Pneumatics pneumatics;
-  private Compressor compressor;
+  public Compressor compressor;
   private final DrivetrainSubsystem m_DrivetrainsSubsystem = new DrivetrainSubsystem();
   private final DrivetrainCommand m_autoCommand = new DrivetrainCommand(m_DrivetrainsSubsystem, xbox);
   //private final secondGearCommand m_secondGear = new secondGearCommand(m_PneumaticSubsystem, xbox);
