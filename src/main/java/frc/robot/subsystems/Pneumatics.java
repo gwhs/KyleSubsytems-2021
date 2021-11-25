@@ -7,32 +7,31 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class PneumaticSubsystem extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
-  public DoubleSolenoid leftDouble, rightDouble;
-
-  public PneumaticSubsystem() {
+public class Pneumatics extends SubsystemBase {
+  /** Creates a new Pneumatics. */
+  private DoubleSolenoid leftDouble;
+  private DoubleSolenoid rightDouble;
+  
+  public Pneumatics() {
     leftDouble = new DoubleSolenoid(0, 1);
     rightDouble = new DoubleSolenoid(/* The PCM CAN ID */ 0, 2, 3);
-  }
 
-  public void firstGear(){
     leftDouble.set(DoubleSolenoid.Value.kReverse);
     rightDouble.set(DoubleSolenoid.Value.kForward);
   }
 
-  public void secondGear(){
+  public void gearOne(){
     leftDouble.set(DoubleSolenoid.Value.kForward);
     rightDouble.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void gearTwo(){
+    leftDouble.set(DoubleSolenoid.Value.kReverse);
+    rightDouble.set(DoubleSolenoid.Value.kForward);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-  }
-
-  @Override
-  public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
   }
 }
