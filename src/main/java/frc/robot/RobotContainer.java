@@ -4,8 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DrivetrainCommand;
 import frc.robot.commands.GearOne;
@@ -13,7 +13,6 @@ import frc.robot.commands.GearTwo;
 import frc.robot.subsystems.DrivetrainSubsystem;
 import frc.robot.subsystems.Pneumatics;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
@@ -27,6 +26,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   XboxController xbox = new XboxController(0);
   private final Pneumatics pneumatics;
+  private Compressor compressor;
   private final DrivetrainSubsystem m_DrivetrainsSubsystem = new DrivetrainSubsystem();
   private final DrivetrainCommand m_autoCommand = new DrivetrainCommand(m_DrivetrainsSubsystem, xbox);
   //private final secondGearCommand m_secondGear = new secondGearCommand(m_PneumaticSubsystem, xbox);
@@ -36,6 +36,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     pneumatics = new Pneumatics();
+    compressor = null;
     // Configure the button bindings
     m_DrivetrainsSubsystem.setDefaultCommand(new DrivetrainCommand(m_DrivetrainsSubsystem, xbox));
     //m_PneumaticSubsystem.firstGear();
