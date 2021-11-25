@@ -4,11 +4,27 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class PneumaticSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public PneumaticSubsystem() {}
+  public DoubleSolenoid leftDouble, rightDouble;
+
+  public PneumaticSubsystem() {
+    leftDouble = new DoubleSolenoid(0, 1);
+    rightDouble = new DoubleSolenoid(/* The PCM CAN ID */ 0, 2, 3);
+  }
+
+  public void firstGear(){
+    leftDouble.set(DoubleSolenoid.Value.kReverse);
+    rightDouble.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void secondGear(){
+    leftDouble.set(DoubleSolenoid.Value.kForward);
+    rightDouble.set(DoubleSolenoid.Value.kReverse);
+  }
 
   @Override
   public void periodic() {
